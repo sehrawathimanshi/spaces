@@ -7,7 +7,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-space-listing',
   templateUrl: './space-listing.component.html',
   styleUrls: ['./space-listing.component.scss'],
-  providers: [SpaceServiceService]
 })
 
 export class SpaceListingComponent implements OnInit {
