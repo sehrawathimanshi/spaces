@@ -1,0 +1,43 @@
+<div class="container">
+    <h1>Space x launch programs</h1>
+    <aside>
+        <h3>Filters</h3>
+        <h4>launch year</h4>
+        <div class="filters">
+            <div>
+                <button *ngFor="let year of yearFilters" (click)="getDataByFilter('launch_year', year.year)" [ngClass]="{'active': defaultLimit.launch_year === year.year}">{{year.year}}</button>
+            </div>
+
+        </div>
+        <h4>Successful launch</h4>
+        <div class="filters">
+            <div>
+                <button [ngClass]="{'active': defaultLimit?.launch_success === 'true'}" (click)="getDataByFilter('launch_success', true)">True</button>
+                <button [ngClass]="{'active': defaultLimit?.launch_success === 'false'}" (click)="getDataByFilter('launch_success', false)">False</button>
+            </div>
+        </div>
+        <h4>Successful landing</h4>
+        <div class="filters">
+            <div>
+                <button [ngClass]="{'active': defaultLimit?.land_success === 'true'}" (click)="getDataByFilter('land_success', true)">True</button>
+                <button [ngClass]="{'active': defaultLimit?.land_success === 'false'}" (click)="getDataByFilter('land_success', false)">False</button>
+            </div>
+        </div>
+    </aside>
+    <div class="card-container">
+        <div class="set" *ngFor="let space of spaceListing" (scroll)="onScrolling($event)">
+            <div class="card">
+                <figure>
+                    <img src="{{space?.links?.mission_patch_small}}" alt="" />
+                </figure>
+                <div class="card-content">
+                    <h3>{{space?.mission_name.slice(0, 10)}}...</h3>
+                    <p>Mission Ids <span>{{space?.mission_id?.length ? space?.mission_id?.join() : '-'}}</span></p>
+                    <p>Launch year <span>{{space?.launch_year}}</span></p>
+                    <p>Successful launch <span>{{space?.launch_success}}</span></p>
+                    <p>Successful landing <span>{{space?.land_success}}</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+{
+    "name": "space",
+    "short_name": "space",
+    "display": "standalone",
+    "scope": "./",
+    "start_url": "./"
+  }
