@@ -41,7 +41,7 @@ describe('SpaceListingComponent', () => {
     fixture = TestBed.createComponent(SpaceListingComponent);
     component = fixture.componentInstance;
     spaceService = TestBed.inject(SpaceServiceService);
-    route = TestBed.get(ActivatedRoute);
+    route = TestBed.inject(ActivatedRoute);
     fixture.detectChanges();
   });
 
