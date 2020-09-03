@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node dist/space/server/main.js",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -13,7 +13,7 @@
     "serve:ssr": "node dist/space/server/main.js",
     "build:ssr": "ng build --prod && ng run space:server:production",
     "prerender": "ng run space:prerender",
-    "heroku-postbuild": "ng build --prod && ng run space:server:production"
+    "heroku-postbuild": "ng lint && ng build --prod && ng run space:server:production"
   },
   "private": true,
   "dependencies": {
