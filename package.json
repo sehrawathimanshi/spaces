@@ -8,13 +8,17 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "start:heroku": "node dist/space/server/main.js",
     "dev:ssr": "ng run space:serve-ssr",
     "serve:ssr": "node dist/space/server/main.js",
     "build:ssr": "ng build --prod && ng run space:server:production",
-    "prerender": "ng run space:prerender"
+    "prerender": "ng run space:prerender",
+    "heroku-postbuild": "ng build --prod && ng run space:server:production"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "~10.0.6",
+    "@angular/compiler-cli": "~10.0.9",
     "@angular/animations": "~10.0.9",
     "@angular/common": "~10.0.9",
     "@angular/compiler": "~10.0.9",
@@ -28,7 +32,8 @@
     "express": "^4.15.2",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.3"
+    "zone.js": "~0.10.3",
+    "typescript": "~3.9.5"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1000.6",
@@ -51,5 +56,9 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.9.5"
+  },
+  "engines": {
+    "node": "10.16.3",
+    "npm": "6.9.0"
   }
 }
