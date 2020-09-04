@@ -7,7 +7,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-space-listing',
   templateUrl: './space-listing.component.html',
   styleUrls: ['./space-listing.component.scss'],
-  providers: [SpaceServiceService]
 })
 
 export class SpaceListingComponent implements OnInit {
@@ -30,7 +29,7 @@ export class SpaceListingComponent implements OnInit {
   }
 
 
-  checkQueryParams() {
+  checkQueryParams(): void {
     this.route.queryParams.subscribe(params => {
       if (params.limit) {
         this.defaultLimit = {
@@ -47,7 +46,7 @@ export class SpaceListingComponent implements OnInit {
     });
   }
 
-  changeQueryParams(params) {
+  changeQueryParams(params): Promise<boolean> {
     return this.router.navigate(
       [],
       {
@@ -57,20 +56,20 @@ export class SpaceListingComponent implements OnInit {
       });
   }
 
-  getDataByFilter(selectedFilter, value) {
+  getDataByFilter(selectedFilter, value): void {
     this.defaultLimit[selectedFilter] = value;
     this.changeQueryParams(this.defaultLimit);
   }
 
 
-  getSpaceListing(params) {
+  getSpaceListing(params): void {
     this.spaceService.getSpaceListing({ ...params }).subscribe((data) => {
       this.spaceListing = data;
     });
   }
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
-  onScroll(event) {
+  onScroll(event): void {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight &&
     Number(this.defaultLimit.limit) < Constants.MAGIC_NUMBERS.ONE_TWENTY) {
       const target = event.target;
