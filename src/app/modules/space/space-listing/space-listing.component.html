@@ -24,7 +24,7 @@
             </div>
         </div>
     </aside>
-    <div class="card-container">
+    <div class="card-container" *ngIf="spaceListing?.length">
         <div class="set" *ngFor="let space of spaceListing" (scroll)="onScrolling($event)">
             <div class="card">
                 <figure>
@@ -35,9 +35,12 @@
                     <p>Mission Ids <span>{{space?.mission_id?.length ? space?.mission_id?.join() : '-'}}</span></p>
                     <p>Launch year <span>{{space?.launch_year}}</span></p>
                     <p>Successful launch <span>{{space?.launch_success}}</span></p>
-                    <p>Successful landing <span>{{space?.land_success}}</span></p>
+                    <p>Successful landing <span>{{space?.launch_landing}}</span></p>
                 </div>
             </div>
         </div>
+    </div>
+    <div *ngIf="!spaceListing?.length">
+        <h1> No Records Found </h1> 
     </div>
 </div>

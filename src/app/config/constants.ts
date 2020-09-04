@@ -1,4 +1,5 @@
 export class Constants {
+    public static readonly API_URL =  `https://api.spacexdata.com/v3/launches`;
     public static readonly MAGIC_NUMBERS = {
         TWENTY: 20,
         ONE_TWENTY: 120

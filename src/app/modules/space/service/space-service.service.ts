@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Constants } from 'src/app/config/constants';
 
 @Injectable()
 export class SpaceServiceService {
@@ -9,9 +10,7 @@ export class SpaceServiceService {
   public getSpaceListing(
     { ...filterOption }
   ) {
-    console.log(filterOption);
-    return this.httpClient.get(`
-    https://api.spacexdata.com/v3/launches?limit=${filterOption.limit}&amp;launch_success=${filterOption.launch_success}&amp;land_success=${filterOption.land_success}&amp;launch_year=${filterOption.launch_year}`);
+    return this.httpClient.get(Constants.API_URL, {params: filterOption});
   }
 
 }
