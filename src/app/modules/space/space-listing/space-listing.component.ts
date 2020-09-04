@@ -14,7 +14,7 @@ export class SpaceListingComponent implements OnInit {
   public spaceListing;
   public defaultLimit = {
     limit: Constants.MAGIC_NUMBERS.TWENTY,
-    launch_success: false,
+    launch_success: '',
     land_success: '',
     launch_year: ''
   };
