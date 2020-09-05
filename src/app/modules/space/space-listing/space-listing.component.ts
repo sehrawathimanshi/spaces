@@ -7,14 +7,15 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-space-listing',
   templateUrl: './space-listing.component.html',
   styleUrls: ['./space-listing.component.scss'],
+  providers: [SpaceServiceService]
 })
 
 export class SpaceListingComponent implements OnInit {
   public spaceListing;
   public defaultLimit = {
     limit: Constants.MAGIC_NUMBERS.TWENTY,
-    launch_success: false,
-    land_success: false,
+    launch_success: '',
+    land_success: '',
     launch_year: ''
   };
   public options;
@@ -71,7 +72,8 @@ export class SpaceListingComponent implements OnInit {
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(event): void {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight &&
-    Number(this.defaultLimit.limit) < Constants.MAGIC_NUMBERS.ONE_TWENTY) {
+    Number(this.defaultLimit.limit) < Constants.MAGIC_NUMBERS.ONE_TWENTY &&
+    Number(this.defaultLimit.limit) === this.spaceListing?.length) {
       const target = event.target;
       this.defaultLimit = {
         ...this.defaultLimit,
