@@ -28,7 +28,7 @@
         <div class="set" *ngFor="let space of spaceListing" (scroll)="onScrolling($event)">
             <div class="card">
                 <figure>
-                    <img src="{{space?.links?.mission_patch_small}}" alt="" />
+                    <img onError="this.src='../../../assets/images/default.png'" src="{{space?.links?.mission_patch_small}}" alt="" />
                 </figure>
                 <div class="card-content">
                     <h3>{{space?.mission_name.slice(0, 10)}}...#{{space?.flight_number}}</h3>
@@ -40,7 +40,7 @@
             </div>
         </div>
     </div>
-    <div *ngIf="!spaceListing?.length">
+    <div class="launch-program-page" *ngIf="!spaceListing?.length">
         <h1> No Records Found </h1> 
     </div>
 </div>
