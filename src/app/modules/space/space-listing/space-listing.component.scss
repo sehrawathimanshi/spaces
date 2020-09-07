@@ -95,6 +95,11 @@
 				width: 33.3333333%;
 			}
 		}
+		@media (min-width: 768px) and (max-width: 1024px) {
+  			.card-container .set {
+				width: 50%;
+			}
+		  }
 		@media (max-width: 767px) {
 			.card-container .set {
 				width: 50%;
