@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Constants } from 'src/app/config/constants';
 import { Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SpaceServiceService {
 
   constructor(private httpClient: HttpClient) { }
